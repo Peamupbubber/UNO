@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,8 +8,6 @@ public class UNORunner : MonoBehaviour
 		static Deck deck = new Deck();
 		static List<Hand> hands = new List<Hand>();
 		static Card topCard = new Card();
-
-		static Scanner scan = new Scanner(System.in);
 
 		static bool isGameActive = true;
 
@@ -47,13 +46,13 @@ public class UNORunner : MonoBehaviour
 			{
 				Debug.Log("\nChoose a card to play. Top card: " + topCard);
 				PlaceCard(hand);
-				if (hands.indexOf(hand) == hands.size() - 1)
+				if (hands.IndexOf(hand) == hands.Count - 1)
 				{
-					mainPhase(hands.get(0));
+					mainPhase(hands[0]);
 				}
 				else
 				{
-					mainPhase(hands.get(hands.indexOf(hand) + 1));
+					mainPhase(hands[hands.IndexOf(hand) + 1]);
 				}
 			}
 
@@ -64,17 +63,17 @@ public class UNORunner : MonoBehaviour
 		//All the preliminary stuff
 		public static void StartGame()
 		{
-			topCard = deck.getDeck().get(deck.getDeckSize() - 1);
+			topCard = deck.getDeck()[deck.getDeckSize() - 1];
 			deck.removeTopCard();
 
-			System.out.println("How many players?");
-			int numPlayers = scan.nextInt();
+			Debug.Log("How many players?");
+		int numPlayers = Console.ReadLine();
 			for (int i = 0; i < numPlayers; i++)
 			{
-				hands.add(new Hand(deck, i));
+				hands.Add(new Hand(deck, i));
 			}
 
-			mainPhase(hands.get(0));
+			mainPhase(hands[0]);
 		}
 
 		//Places the card if all conditions are met, accounts for wild cards
@@ -84,30 +83,30 @@ public class UNORunner : MonoBehaviour
 			input--;
 
 			//Makes sure it's a valid input
-			while (input > hand.getHand().size())
+			while (input > hand.getHand().Count)
 			{
-				System.out.println("Enter a valid option");
+				Debug.Log("Enter a valid option");
 				input = scan.nextInt();
 				input--;
 			}
 
-			Card choosenCard = hand.getHand().get(input);
+			Card choosenCard = hand.getHand()[input];
 
 			//The wild card situation
-			if (choosenCard.getColor().equals(""))
+			if (choosenCard.getColor().Equals(""))
 			{
 				hand.remove(input);
-				System.out.println("Enter 1 for Yellow, 2 for Blue, 3 for Green, 4 for Red.");
+				Debug.Log("Enter 1 for Yellow, 2 for Blue, 3 for Green, 4 for Red.");
 				input = scan.nextInt();
 
 				//Makes sure it's a valid input
 				while (input < 1 || input > 4)
 				{
-					System.out.println("Enter a vaild number");
+					Debug.Log("Enter a vaild number");
 					input = scan.nextInt();
 				}
 				input--;
-				String[] colors = { "Yellow", "Blue", "Green", "Red" };
+				string[] colors = { "Yellow", "Blue", "Green", "Red" };
 				choosenCard.setColor(colors[input]);
 				topCard = choosenCard;
 
@@ -121,9 +120,9 @@ public class UNORunner : MonoBehaviour
 		}
 
 		//Tests is any card in the hand can be played
-		public static boolean CanPlayACard(Hand hand)
+		public static bool CanPlayACard(Hand hand)
 		{
-			for (Card c : hand.getHand())
+			foreach (Card c in hand.getHand())
 			{
 				if (CanPlayCard(c))
 					return true;
@@ -132,12 +131,12 @@ public class UNORunner : MonoBehaviour
 		}
 
 		//Tests if that card can be played
-		public static boolean CanPlayCard(Card c)
+		public static bool CanPlayCard(Card c)
 		{
-			return c.getColor().contentEquals(topCard.getColor()) ||
-						c.getType().contentEquals(topCard.getType()) ||
-						c.getColor().equals("") ||
-						topCard.getColor().contentEquals("");
+			return c.getColor().Equals(topCard.getColor()) ||
+						c.getType().Equals(topCard.getType()) ||
+						c.getColor().Equals("") ||
+						topCard.getColor().Equals("");
 		}
 
 }
