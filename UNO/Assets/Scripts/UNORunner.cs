@@ -13,7 +13,7 @@ public class UNORunner : MonoBehaviour
 
     private void Start()
     {
-		StartGame();
+		// StartGame(); //
 	}
 
 		//The act of drawing cards
@@ -45,7 +45,7 @@ public class UNORunner : MonoBehaviour
 			while (CanPlayACard(hand))
 			{
 				Debug.Log("\nChoose a card to play. Top card: " + topCard);
-				PlaceCard(hand);
+				// PlaceCard(hand); //
 				if (hands.IndexOf(hand) == hands.Count - 1)
 				{
 					mainPhase(hands[0]);
@@ -59,6 +59,7 @@ public class UNORunner : MonoBehaviour
 			if (isGameActive)
 				drawPhase(hand);
 		}
+	/*
 
 		//All the preliminary stuff
 		public static void StartGame()
@@ -76,6 +77,7 @@ public class UNORunner : MonoBehaviour
 			mainPhase(hands[0]);
 		}
 
+	
 		//Places the card if all conditions are met, accounts for wild cards
 		public static void PlaceCard(Hand hand)
 		{
@@ -119,6 +121,7 @@ public class UNORunner : MonoBehaviour
 			}
 		}
 
+	*/
 		//Tests is any card in the hand can be played
 		public static bool CanPlayACard(Hand hand)
 		{
