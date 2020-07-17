@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class UNORunner : MonoBehaviour
 {
+	/*
 		static Deck deck = new Deck();
 		static List<Hand> hands = new List<Hand>();
 		static Card topCard = new Card();
@@ -121,7 +122,7 @@ public class UNORunner : MonoBehaviour
 			}
 		}
 
-	*/
+	
 		//Tests is any card in the hand can be played
 		public static bool CanPlayACard(Hand hand)
 		{
@@ -141,5 +142,5 @@ public class UNORunner : MonoBehaviour
 						c.getColor().Equals("") ||
 						topCard.getColor().Equals("");
 		}
-
+	*/
 }

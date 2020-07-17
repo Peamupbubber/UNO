@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Deck : MonoBehaviour
-{
+{/*
 
 		List<Card> deck = new List<Card>();
 
@@ -78,4 +78,5 @@ public class Deck : MonoBehaviour
 		{
 			return deck[deck.Count - 1];
 		}
+	*/
 	}

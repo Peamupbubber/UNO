@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Hand : MonoBehaviour
 {
+	/*
 
 		List<Card> hand = new List<Card>();
 		Deck deck = new Deck();
@@ -59,4 +60,5 @@ public class Hand : MonoBehaviour
 			hand.Add(deck.getTopCard());
 			deck.removeTopCard();
 		}
+	*/
 	}

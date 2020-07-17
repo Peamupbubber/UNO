@@ -7,27 +7,29 @@ public class Card : MonoBehaviour
 
 	
 
-		private string type;
-		private string color;
+	private string type;
+	private Color color;
 
-		public Card()
-		{
-			type = null;
-			color = null;
-		}
+	public Card()
+	{
+		type = null;
+		color = Color.black;
+	}
 
-		public Card(string type, string color)
-		{
-			this.type = type;
-			this.color = color;
-		}
+	public void CreateCard(string type, Color color)
+	{
+		this.type = type;
+		this.color = color;
+		//research more
+		gameObject.GetComponent<Renderer>().material.SetColor("Standard", color);
+	}
 
 		public string getType()
 		{
 			return type;
 		}
 
-		public string getColor()
+		public Color getColor()
 		{
 			return color;
 		}
@@ -37,7 +39,7 @@ public class Card : MonoBehaviour
 			this.type = type;
 		}
 
-		public void setColor(string color)
+		public void setColor(Color color)
 		{
 			this.color = color;
 		}
