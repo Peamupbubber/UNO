@@ -106,3 +106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecd99294bfd68de4ebeea8f8116884f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colors:
+  - {fileID: 2100000, guid: 88fcead5dcffda34e8ccff5982136152, type: 2}
+  - {fileID: 2100000, guid: 3a89715f65d80e94288c337dbd25af30, type: 2}
+  - {fileID: 2100000, guid: 38061241b8ca3834eb44c3e2f6594ae3, type: 2}
+  - {fileID: 2100000, guid: 1467fe4ff6fda834c808b72bc60b6888, type: 2}

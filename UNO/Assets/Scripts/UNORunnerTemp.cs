@@ -9,7 +9,7 @@ public class UNORunnerTemp : MonoBehaviour
     void Start()
     {
         var card = Instantiate(m_card);
-        card.GetComponent<Card>().CreateCard("Temp", Color.red);
+        card.GetComponent<Card>().CreateCard("Temp", 3);
         
     }
 

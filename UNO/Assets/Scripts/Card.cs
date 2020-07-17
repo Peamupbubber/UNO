@@ -5,23 +5,24 @@ using UnityEngine;
 public class Card : MonoBehaviour
 {
 
-	
+	[SerializeField] private Material[] colors;
 
 	private string type;
-	private Color color;
+	private Material color;
 
 	public Card()
 	{
 		type = null;
-		color = Color.black;
+		color = null;
 	}
 
-	public void CreateCard(string type, Color color)
+	public void CreateCard(string type, int color)
 	{
 		this.type = type;
-		this.color = color;
+		this.color = colors[color];
 		//research more
-		gameObject.GetComponent<Renderer>().material.SetColor("Standard", color);
+		gameObject.GetComponent<MeshRenderer>().material = this.color;
+
 	}
 
 		public string getType()
@@ -29,7 +30,7 @@ public class Card : MonoBehaviour
 			return type;
 		}
 
-		public Color getColor()
+		public Material getColor()
 		{
 			return color;
 		}
@@ -39,7 +40,7 @@ public class Card : MonoBehaviour
 			this.type = type;
 		}
 
-		public void setColor(Color color)
+		public void setColor(Material color)
 		{
 			this.color = color;
 		}
