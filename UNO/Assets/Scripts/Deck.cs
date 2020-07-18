@@ -3,17 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Deck : MonoBehaviour
-{/*
+{
 
 		List<Card> deck = new List<Card>();
 
 		public Deck()
 		{
 			makeDeck();
-			shuffle();
+			//shuffle();
 		}
 
-		public List<Card> getDeck()
+    private void Start()
+    {
+		makeDeck();
+    }
+
+    public List<Card> getDeck()
 		{
 			return deck;
 		}
@@ -33,20 +38,31 @@ public class Deck : MonoBehaviour
 					for (int k = 0; k < 2; k++)
 					{
 						if (i == 10)
-							deck.Add(new Card("Skip", colors[j]));
+						{
+							deck.Add(Instantiate(new Card()));
+							deck[deck.Count - 1].CreateCard("Skip", j);
+						}
+						/*
 						else if (i == 11)
-							deck.Add(new Card("Reverse", colors[j]));
+						{
+							deck.Add(new CreateCard("Reverse", j));
+						}
 						else if (i == 12)
-							deck.Add(new Card("Draw Two", colors[j]));
+						{
+							deck.Add(CreateCard("Draw Two", j));
+						}
 						else
-							deck.Add(new Card("" + i, colors[j]));
+						{
+							deck.Add(CreateCard("" + i, j));
+						}
+						*/
 					}
 				}
 			}
 			for (int i = 0; i < 4; i++)
 			{
-				deck.Add(new Card("Wild", ""));
-				deck.Add(new Card("Wild: Draw Four", ""));
+				//deck.Add(new Card("Wild", ""));
+				//deck.Add(new Card("Wild: Draw Four", ""));
 			}
 		}
 
@@ -78,5 +94,5 @@ public class Deck : MonoBehaviour
 		{
 			return deck[deck.Count - 1];
 		}
-	*/
+	
 	}
